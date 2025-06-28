@@ -18,17 +18,17 @@ If you're a developer interested in running the extension locally instead of ins
     ```bash
     bun install
     ```
-2. Then you can start the development server which watches for file changes automatically:
-    ```bash
-    bun start
-    ```
-    Or alternatively - only run the build once:
+2. Build the extension **before loading it**:
     ```bash
     bun run build
     ```
+    This step generates the icons (`images/icon_*.png`) and writes the compiled extension to the `build` directory. If you want to automatically rebuild while developing, run:
+    ```bash
+    bun start
+    ```
 3. Open the extension list in your browser settings: [chrome://extensions](chrome://extensions)
 4. Enable **Developer mode**
-5. Click the **Load unpacked** button, navigate to the extension root folder and pick the `build` folder
+5. Click the **Load unpacked** button and select the `build` directory
 6. Enjoy!
 
 ## Test
