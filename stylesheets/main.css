@@ -14,8 +14,8 @@
   --neutral-transparent-20: hsla(0, 0%, 0%, 20%);
 
   /* Accent */
-  --accent: hsl(213, 80%, 50%);
-  --accent-dark: hsl(213, 80%, 40%);
+  --accent: #3a3ae9;
+  --accent-dark: #2f2fc0;
 
   /* Success */
   --success-light: hsl(145, 64%, 43%);

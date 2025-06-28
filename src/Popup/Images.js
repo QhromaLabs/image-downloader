@@ -19,20 +19,19 @@ export const Images = ({
   ...props
 }) => {
   const containerStyle = useMemo(() => {
-    const columns = parseInt(options.columns, 10);
+    const width = parseInt(options.image_max_width, 10);
     return {
-      gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-      width: `calc(2 * var(--images-container-padding) + ${columns} * ${options.image_max_width}px + ${columns - 1} * var(--images-container-gap))`,
+      gridTemplateColumns: `repeat(auto-fill, minmax(${width}px, 1fr))`,
+      width: '100%',
       ...style,
     };
-  }, [options.columns, options.image_max_width, style]);
+  }, [options.image_max_width, style]);
 
   // Fix weird flexbox bug where the parent does not respect the child's width
   // https://github.com/PactInteractive/image-downloader/issues/114#issuecomment-1715716846
   useEffect(() => {
-    // Set min width instead of width to allow for other content like header or footer to render properly
-    document.querySelector('main').style.minWidth = containerStyle.width;
-  }, [containerStyle]);
+    document.querySelector('main').style.minWidth = '100%';
+  }, []);
 
   const showImageUrl = useMemo(() => options.show_image_url === 'true', [
     options.show_image_url,
