@@ -116,6 +116,9 @@ const Popup = () => {
       );
 
       return (
+        (options.remove_small === 'true'
+          ? image.naturalWidth >= 32 && image.naturalHeight >= 32
+          : true) &&
         (options.filter_min_width_enabled !== 'true' ||
           options.filter_min_width <= image.naturalWidth) &&
         (options.filter_max_width_enabled !== 'true' ||
@@ -275,6 +278,17 @@ const Popup = () => {
         />
       `}
 
+      <label style=${{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+        <input
+          type="checkbox"
+          checked=${options.zip_download === 'true'}
+          onChange=${({ currentTarget: { checked } }) =>
+            setOptions((o) => ({ ...o, zip_download: checked.toString() }))
+          }
+        />
+        Zip before download
+      </label>
+
       <${DownloadButton}
         disabled=${imagesToDownload.length === 0}
         loading=${downloadIsInProgress}
@@ -314,9 +328,17 @@ function findImages() {
 
   function extractImageFromElement(element) {
     if (element.tagName.toLowerCase() === 'img') {
-      const src = element.src;
-      const hashIndex = src.indexOf('#');
-      return hashIndex >= 0 ? src.substr(0, hashIndex) : src;
+      const attrSrc =
+        element.getAttribute('src') ||
+        element.getAttribute('data-src') ||
+        element.getAttribute('data-lazy-src') ||
+        element.getAttribute('data-original') ||
+        element.getAttribute('data-iurl') ||
+        element.getAttribute('lowsrc');
+      if (attrSrc) {
+        const hashIndex = attrSrc.indexOf('#');
+        return hashIndex >= 0 ? attrSrc.substr(0, hashIndex) : attrSrc;
+      }
     }
 
     if (element.tagName.toLowerCase() === 'image') {
@@ -327,6 +349,14 @@ function findImages() {
 
     if (element.tagName.toLowerCase() === 'a') {
       const href = element.href;
+      const dataIurl = element.getAttribute('data-iurl');
+      if (dataIurl && isImageURL(dataIurl)) {
+        return dataIurl;
+      }
+      const imgres = /[?&]imgurl=([^&]+)/.exec(href);
+      if (imgres) {
+        return decodeURIComponent(imgres[1]);
+      }
       if (isImageURL(href)) {
         return href;
       }

@@ -27,6 +27,8 @@ const defaults = {
   columns: 2,
   image_min_width: 50,
   image_max_width: 200,
+  zip_download: false,
+  remove_small: false,
 };
 
 Object.keys(defaults).forEach((option) => {
