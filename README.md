@@ -1,6 +1,6 @@
 <h1 align="center">
   <img src="images/logo.svg" alt="Image Downloader logo" height="40" valign="middle" />
-  &nbsp;Image Downloader
+  &nbsp;Qhroma Image Scraper
 </h1>
 
 <h2 align="center">

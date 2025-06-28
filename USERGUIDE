@@ -1,4 +1,4 @@
-🟦 Image Downloader
+🟦 Qhroma Image Scraper
 ━━━━━━━━━━
 To save multiple photos at once, this extension enables you to:
 - Browse pictures on the active webpage
@@ -13,9 +13,9 @@ Note: If no default download folder is set, you’ll need to choose a save locat
 ❓ FAQs
 ━━━━
 💭 Why does this extension need access to all site data?
-To extract photos from a webpage, Image Downloader must access all content when the popup is activated. No data is sent off your device. See our Privacy Policy for details: https://pactinteractive.github.io/image-downloader
+To extract photos from a webpage, Qhroma Image Scraper must access all content when the popup is activated. No data is sent off your device. See our Privacy Policy for details: https://pactinteractive.github.io/image-downloader
 
 💭 Why were some downloaded photos smaller or missing?
-Image Downloader only retrieves photos currently displayed on the page, which may be thumbnails rather than full-resolution versions (e.g., in Facebook albums). Some sites, like Instagram, load only a few pictures at a time in carousels to save bandwidth.
+Qhroma Image Scraper only retrieves photos currently displayed on the page, which may be thumbnails rather than full-resolution versions (e.g., in Facebook albums). Some sites, like Instagram, load only a few pictures at a time in carousels to save bandwidth.
 
-We’re exploring ways to improve Image Downloader’s capabilities. For now, consider using extensions tailored to specific sites (e.g., Facebook) for advanced functionality.
+We’re exploring ways to improve Qhroma Image Scraper’s capabilities. For now, consider using extensions tailored to specific sites (e.g., Facebook) for advanced functionality.
